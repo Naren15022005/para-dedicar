@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Cumpleaños</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .card-container {
+      position: relative;
+      width: 300px;
+      perspective: 1000px;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      max-height: 60px; /* Tamaño inicial cerrado */
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    .card.open {
+      max-height: 1000px; /* Tamaño expandido */
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .card.open .card-inner {
+      opacity: 1;
+    }
+
+    .section {
+      border: 1px dashed #000;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: center;
+      background-color: #fdf5f5;
+      font-size: 16px;
+      position: relative;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      color: #ff7b7b;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .doodle {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 30px;
+      color: #ff4b6d;
+    }
+
+    .button {
+      background-color: #ff7b7b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 20px auto 0;
+      display: block;
+      width: 80%;
+    }
+
+    .button:hover {
+      background-color: #ff4b6d;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <div class="card" id="card">
+      <div class="card-inner">
+        <div class="section">
+          <h2>🎉 ¡Feliz Cumpleaños!</h2>
+          <p>Hoy celebramos tu día, y quiero recordarte lo especial que eres para mí. ¡Gracias por iluminar mi vida!</p>
+          <span class="doodle">❤️</span>
+        </div>
+        <div class="section">
+          <h2>✨ Momentos Únicos</h2>
+          <p>Eres lo mejor que me paso en este pesado año, Dios mediante el 2025 lo finalice contigo, y podamos llenar esta casilla con nuestros unicos Momentos</p>
+          <span class="doodle">⭐</span>
+        </div>
+        <div class="section">
+          <h2>💌 Para Siempre</h2>
+          <p>Pasar segundos, minutos, horas, dias, semanas, meses, años, molestandote y estando contigo, con la meta de convertirte en la madre de mis hijos y llegar a cucho con vos.</p>
+          <span class="doodle">🎂</span>
+        </div>
+      </div>
+    </div>
+    <button class="button" id="toggleButton">Abrir Mensaje</button>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    const toggleButton = document.getElementById('toggleButton');
+
+    toggleButton.addEventListener('click', () => {
+      // Alternar la clase 'open' para abrir o cerrar la tarjeta
+      card.classList.toggle('open');
+
+      // Cambiar el texto del botón según el estado
+      if (card.classList.contains('open')) {
+        toggleButton.textContent = 'Cerrar Mensaje';
+      } else {
+        toggleButton.textContent = 'Abrir Mensaje';
+      }
+    });
+  </script>
+</body>
+</html>
